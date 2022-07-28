@@ -6,7 +6,7 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:48:32 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/07/27 13:24:28 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/07/28 14:31:34 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 
-	if (!lst)
+	if (!lst || !del)
 		return ;
 	while (*lst != NULL)
 	{
@@ -24,4 +24,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		ft_lstdelone(*lst, del);
 		*lst = tmp;
 	}
+	*lst = NULL;
 }
