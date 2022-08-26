@@ -6,7 +6,7 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:15:55 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/26 20:45:00 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:29:36 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 void	exit_on_err(int fd, char *err_msg);
 void	free_split(char **split);
-char	*get_next_line(int fd, char *line);
+char	*get_next_line(int fd);
 
 typedef struct s_list
 {

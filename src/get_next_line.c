@@ -6,7 +6,7 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 08:51:30 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/26 21:23:19 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:30:00 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,11 @@ static char	*ft_read(int fd, char *buf, char *str)
 	return (str);
 }
 
-char	*get_next_line(int fd, char *line)
+char	*get_next_line(int fd)
 {
 	static char	*str;
 	char		*buf;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
