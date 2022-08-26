@@ -6,7 +6,7 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:15:55 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/07/26 20:50:10 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/26 20:45:00 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -54,7 +59,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 // New functions
 
 void	exit_on_err(int fd, char *err_msg);
-void	ft_free_split(char **split);
+void	free_split(char **split);
+char	*get_next_line(int fd, char *line);
 
 typedef struct s_list
 {

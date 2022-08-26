@@ -6,94 +6,91 @@
 #    By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/28 12:48:30 by rkassouf          #+#    #+#              #
-#    Updated: 2022/07/26 21:48:14 by rkassouf         ###   ########.fr        #
+#    Updated: 2022/08/26 21:25:51 by rkassouf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
-CC = gcc $(CFLAGS)
-ARFLAGS	=	-rcs
-AR		=	ar $(ARFLAGS)
-RM = rm -rf
-
-SRCS_DIR = ./src
-OBJS_DIR = ./obj
-INCLUDES_DIR = ./includes
+# Executable's name (Can be changed)
 
 NAME		= libft.a
 
-CFILES		= ft_memset.c \
-			  ft_bzero.c \
-			  ft_memcpy.c \
-			  ft_strlen.c \
-			  ft_isalpha.c \
-			  ft_isdigit.c \
-			  ft_isalnum.c \
-			  ft_isascii.c \
-			  ft_isprint.c \
-			  ft_toupper.c \
-			  ft_tolower.c \
-			  ft_calloc.c \
-			  ft_strchr.c \
-			  ft_strrchr.c \
-			  ft_strdup.c \
-			  ft_strlcpy.c \
-			  ft_strlcat.c \
-			  ft_memcmp.c \
-			  ft_memchr.c \
-			  ft_memmove.c \
-			  ft_strnstr.c \
-			  ft_strncmp.c \
-			  ft_atoi.c \
-			  ft_putchar_fd.c \
-			  ft_putstr_fd.c \
-			  ft_putendl_fd.c \
-			  ft_putnbr_fd.c \
-			  ft_substr.c \
-			  ft_strjoin.c \
-			  ft_strtrim.c \
-			  ft_split.c \
-			  ft_itoa.c \
-			  ft_strmapi.c \
-			  ft_striteri.c \
-			  ft_exit_on_err.c
+# All the directories needed to know where files should be (Can be changed)
 
-CFILES_B	= ft_lstnew.c \
-			  ft_lstadd_front.c \
-			  ft_lstsize.c \
-			  ft_lstlast.c \
-			  ft_lstadd_back.c \
-			  ft_lstdelone.c \
-			  ft_lstclear.c \
-			  ft_lstiter.c \
-			  ft_lstmap.c
+SRCDIR 		= src/
+OBJDIR 		= obj/
+INCDIR 		= includes/
+INCS   		= libft.h
 
-SRCS	=	$(CFILES)
-OBJS	=	$(addprefix $(OBJS_DIR)/,$(CFILES:.c=.o))
-SRCS_B	=	$(CFILES_B)
-OBJS_B	=	$(addprefix $(OBJS_DIR)/,$(CFILES_B:.c=.o))
+# Source files (Can be changed)
 
-INCLUDES_FILES = libft.h
-INCLUDES = $(addprefix $(INCLUDES_DIR)/, $(INCLUDES_FILES))
+SRC			= ft_memset.c 					ft_bzero.c \
+			  ft_memcpy.c 					ft_memcmp.c \
+			  ft_memchr.c 					ft_memmove.c \
+			  ft_calloc.c					ft_isprint.c \
+			  ft_isalpha.c 					ft_isdigit.c \
+			  ft_isalnum.c 					ft_isascii.c \
+			  ft_toupper.c 					ft_tolower.c \
+			  ft_strchr.c 					ft_strrchr.c \
+			  ft_strlen.c 					ft_strdup.c \
+			  ft_strlcpy.c 					ft_strlcat.c \
+			  ft_strnstr.c 					ft_strncmp.c \
+			  ft_putchar_fd.c 				ft_putstr_fd.c \
+			  ft_putendl_fd.c 				ft_putnbr_fd.c \
+			  ft_substr.c 					ft_strjoin.c \
+			  ft_strtrim.c 					ft_split.c \
+			  ft_itoa.c						ft_atoi.c \
+			  ft_strmapi.c 					ft_striteri.c \
+			  ft_lstnew.c 					ft_lstadd_front.c \
+			  ft_lstsize.c 					ft_lstlast.c \
+			  ft_lstadd_back.c 				ft_lstdelone.c \
+			  ft_lstclear.c 				ft_lstiter.c \
+			  ft_lstmap.c					ft_exit_on_err.c \
+			  get_next_line.c
+
+# Some tricks in order to get the makefile doing his job the way I want (Can't be changed)
+
+CSRC		= $(addprefix $(SRCDIR), $(SRC))
+COBJ		= $(addprefix $(OBJDIR), $(OBJ))
+HEADERS		= $(foreach header, $(INCS), $(INCDIR)$(header))
+INCLUDES	= $(foreach include, $(INCDIR), -I./$(include))
+
+# How files should be compiled with set flags (Can be changed)
+
+CC 			= gcc
+OBJ			= $(SRC:.c=.o)
+CFLAGS		= $(INCLUDES) -Wall -Wextra -Werror
+
+# Rule called upon 'make'
 
 all: $(NAME)
 
-${NAME}:	${OBJS}
-	${AR} $@ $^
+# Build the library when all .c files are compiled into .o files and then indexing it
 
-${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c
-	@mkdir -p obj
-	$(CC) -I$(INCLUDES_DIR) -o $@ -c $<
+$(NAME): $(OBJDIR) $(COBJ)
+	@ar rcs $(NAME) $(COBJ)
 
-bonus:	${OBJS} ${OBJS_B}
-	${AR} ${NAME} $^
+# Tries to create objs directory
+
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
+# Redefinition of implicit compilation rule to prompt file names during the said compilation
+
+$(OBJDIR)%.o: $(SRCDIR)%.c $(HEADERS)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+# Deleting all .o files and then the directory where they were located
 
 clean:
-	${RM} ${OBJS_DIR}
+	@$(RM) -rf $(OBJDIR)
+
+# Deleting the library after cleaning up all .o files
 
 fclean: clean
-	${RM} ${NAME}
+	@$(RM) $(NAME)
+
+# Delete all .o files then the library and rebuild the whole thing again
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

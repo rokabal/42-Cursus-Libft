@@ -6,7 +6,7 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:03:42 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/26 12:14:33 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/26 20:37:56 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ft_wordlength(char const *s, char c)
 	return (length);
 }
 
-void	ft_free_split(char **split)
+void	free_split(char **split)
 {
 	int	i;
 
@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c)
 		split[i] = ft_substr(s, 0, ft_wordlength(s, c));
 		if (!split[i])
 		{
-			ft_free_split(split);
+			free_split(split);
 			return (NULL);
 		}
 		s += ft_wordlength(s, c);
