@@ -6,11 +6,12 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:03:42 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/07/26 20:46:45 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:10:35 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_separator(char a, char c)
 {
@@ -19,62 +20,63 @@ static int	ft_separator(char a, char c)
 	return (0);
 }
 
-static size_t	ft_wordcount(char const *s, char c)
+static int	ft_wordcount(char const *s, char c)
 {
-	size_t	len;
-	size_t	wc;
-	size_t	i;
+	int	wc;
+	int	i;
 
 	wc = 0;
-	i = 0;
-	len = ft_strlen(s);
-	while (i < len)
-	{
-		if (ft_separator(s[i], c) == 0 && ft_separator(s[i + 1], c) == 1)
+	i = -1;
+	while (s && s[++i])
+		if (!ft_separator(s[i], c) && ft_separator(s[i + 1], c))
 			wc++;
-		i++;
-	}
 	return (wc);
+}
+
+static int	ft_wordlength(char const *s, char c)
+{
+	int	length;
+
+	length = 0;
+	while (!ft_separator(s[length], c))
+			length++;
+	return (length);
 }
 
 void	ft_free_split(char **split)
 {
 	int	i;
 
-	i = 0;
-	while (split[i] != NULL)
-	{
+	i = -1;
+	while (split[++i])
 		free(split[i]);
-		i++;
-	}
 	free(split);
-	split = NULL;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	wc;
-	size_t	size;
+	int		i;
+	int		wc;
 	char	**split;
 
 	if (!s)
 		return (NULL);
 	wc = ft_wordcount(s, c);
-	split = malloc((wc + 1) * sizeof(char *));
-	if (split == NULL)
+	split = malloc(sizeof(*split) * (wc + 1));
+	if (!split)
 		return (NULL);
-	i = 0;
-	while (i < wc)
+	i = -1;
+	while (++i < wc)
 	{
-		size = 0;
 		while (ft_separator(*s, c) && *s != '\0')
 			s++;
-		while (ft_separator(s[size], c) == 0)
-			size++;
-		split[i] = ft_substr(s, 0, size);
-		s += size;
-		i++;
+		split[i] = ft_substr(s, 0, ft_wordlength(s, c));
+		if (!split[i])
+		{
+			ft_free_split(split);
+			return (NULL);
+		}
+		s += ft_wordlength(s, c);
 	}
 	split[i] = NULL;
 	return (split);
