@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkassouf <rkassouf@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:52:20 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/02/23 16:27:52 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/31 23:50:30 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

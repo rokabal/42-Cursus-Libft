@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkassouf <rkassouf@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:35:08 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/02/23 22:54:05 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/31 23:51:39 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

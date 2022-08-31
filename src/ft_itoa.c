@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkassouf <rkassouf@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 22:28:19 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/03/09 00:11:11 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/31 23:50:53 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	ft_digits(int n)
 {

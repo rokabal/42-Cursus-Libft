@@ -6,11 +6,11 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:03:42 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/26 20:37:56 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/08/31 23:52:15 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	ft_separator(char a, char c)
 {
