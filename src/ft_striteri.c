@@ -6,11 +6,11 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 00:28:32 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/31 23:50:35 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:12:02 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../inc/libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

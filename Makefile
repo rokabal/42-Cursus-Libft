@@ -6,7 +6,7 @@
 #    By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/28 12:48:30 by rkassouf          #+#    #+#              #
-#    Updated: 2022/08/26 21:25:51 by rkassouf         ###   ########.fr        #
+#    Updated: 2022/09/04 18:09:15 by rkassouf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME		= libft.a
 
 SRCDIR 		= src/
 OBJDIR 		= obj/
-INCDIR 		= includes/
+INCDIR 		= inc/
 INCS   		= libft.h
 
 # Source files (Can be changed)

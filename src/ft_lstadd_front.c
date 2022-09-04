@@ -6,11 +6,11 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:59:48 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/31 23:50:59 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:09:54 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../inc/libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

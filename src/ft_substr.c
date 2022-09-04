@@ -6,11 +6,11 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:50:57 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/31 23:48:51 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:11:22 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../inc/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

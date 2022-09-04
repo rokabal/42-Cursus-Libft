@@ -6,11 +6,11 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 21:23:47 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/31 23:48:57 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:11:31 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../inc/libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

@@ -6,11 +6,11 @@
 /*   By: rkassouf <rkassouf@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:33:50 by rkassouf          #+#    #+#             */
-/*   Updated: 2022/08/31 23:51:03 by rkassouf         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:10:06 by rkassouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../inc/libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
